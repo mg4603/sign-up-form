@@ -26,58 +26,69 @@
         </div>
         <div class="form-container">
             <form action="#">
-                <section class="form-heading">
-                    <h2>Let's do this!</h2>
-                    <p>
-                        Required fields are followed by
-                        <strong><abbr title="required" aria-label="required">*</abbr></strong>
-                    </p>
-                </section>
-                <section class="form-body">
-                    <ul>
-                        <li>
-                            <label for="f_name">
-                                <span class="form-label">First Name</span>
-                                <strong><abbr title="required" aria-label="required">*</abbr></strong>
-                            </label>
-                            <input type="text" id="f_name" name="first_name">
-                        </li>
-                        <li>
-                            <label for="l_name">
-                                <span class="form-label">Last Name</span>
-                                <strong><abbr title="required" aria-label="required">*</abbr></strong>
-                            </label>
-                            <input type="text" id="l_name" name="last_name">
-                        </li>
-                        <li>
-                            <label for="email">
-                                <span class="form-label">Email</span>
-                                <strong><abbr title="required" arial-label="required">*</abbr></strong>
-                            </label>
-                            <input type="email" id="email" name="email">
-                        </li>
-                        <li>
-                            <label for="phone_number">
-                                <span class="form-label">phone number</span>
-                                <strong><abbr title="required" aria-label="required">*</abbr></strong>
-                            </label>
-                            <input type="tel" id="phone_number" name="phone_number">
-                        </li>
-                        <li>
-                            <label for="pwd">
-                                <span class="form-label">password</span>
-                                <strong><abbr title="required" aria-label="required">*</abbr></strong>
-                            </label>
-                            <input type="password" id="pwd" name="password">
-                        </li>
-                        <li>
-                            <label for="confirm_pwd">
-                                <span class="form-label">confirm password</span>
-                                <strong><abbr title="required" aria-label="required">*</abbr></strong>
-                            </label>
-                        </li>
-                    </ul>
-                </section>
+                <div class="form-card">
+                    <section class="form-heading">
+                        <h2>Let's do this!</h2>
+                        <p>
+                            Required fields are followed by
+                            <strong><abbr title="required" aria-label="required">*</abbr></strong>
+                        </p>
+                    </section>
+                    <section class="form-body">
+                        <ul>
+                            <li>
+                                <div class="left-column">
+                                    <label for="f_name">
+                                        <span class="form-label">First Name</span>
+                                        <strong><abbr title="required" aria-label="required">*</abbr></strong>
+                                    </label>
+                                    <input type="text" id="f_name" name="first_name">
+                                </div>
+                                <div class="right-column">
+                                    <label for="l_name">
+                                        <span class="form-label">Last Name</span>
+                                        <strong><abbr title="required" aria-label="required">*</abbr></strong>
+                                    </label>
+                                    <input type="text" id="l_name" name="last_name">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="left-column">
+                                    <label for="email">
+                                        <span class="form-label">Email</span>
+                                        <strong><abbr title="required" arial-label="required">*</abbr></strong>
+                                    </label>
+                                    <input type="email" id="email" name="email">
+                                </div>
+                    
+                                <div class="right-column">
+                                    <label for="phone_number">
+                                        <span class="form-label">phone number</span>
+                                        <strong><abbr title="required" aria-label="required">*</abbr></strong>
+                                    </label>
+                                    <input type="tel" id="phone_number" name="phone_number">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="left-column">
+                                    <label for="pwd">
+                                        <span class="form-label">password</span>
+                                        <strong><abbr title="required" aria-label="required">*</abbr></strong>
+                                    </label>
+                                    <input type="password" id="pwd"  name="password">
+                                </div>
+                    
+                                <div class="right-column">
+                                    <label for="confirm_pwd">
+                                        <span class="form-label">confirm password</span>
+                                        <strong><abbr title="required" aria-label="required">*</abbr></strong>
+                                    </label>
+                                    <input type="password" id="confirm_pwd" name="confirm_pwd">
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
                 <section class="form-footer">
                     <button>Create Account</button>
                     <p>Already have an account? <a href="#">Log in</a></p>
@@ -87,4 +98,19 @@
     </section>
 
 </body>
+<script>
+    const pwd = document.querySelector("#pwd");
+    const confirm_pwd = document.querySelector("#confirm_pwd");
+    pwd.addEventListener('input', (event)=>{
+        confirm_pwd.addEventListener('input', event1=>{
+            if(event.target.value !== event1.target.value){
+                pwd.classList = "error";
+                confirm_pwd.classList = "error";
+            }else{
+                pwd.classList = "";
+                confirm_pwd.classList = "";
+            }
+        });
+    });
+</script>
 </html>
